@@ -1,3 +1,5 @@
-*
-!.gitignore
-!src/*
+bin
+.classpath
+.project
+chosen.txt
+settings.properties
