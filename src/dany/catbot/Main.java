@@ -10,5 +10,6 @@ public class Main
 	{
 		handler  = new CatBotHandler();
 		bot = handler.init();
+		bot.start();
 	}
 }

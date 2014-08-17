@@ -2,7 +2,7 @@ package dany.catbot.lib;
 
 import java.util.List;
 
-public class ListHelper
+public class Helper
 {
 	public static boolean containsIgnoreCase(List<String> list, String str)
 	{
@@ -14,5 +14,10 @@ public class ListHelper
 			}
 		}
 		return false;
+	}
+	
+	public static boolean containsIgnoreCase(String string, String str)
+	{
+		return string.toLowerCase().contains(str);
 	}
 }

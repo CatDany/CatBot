@@ -1,5 +1,8 @@
 package dany.catbot.command;
 
+import org.pircbotx.hooks.events.MessageEvent;
+
+import dany.catbot.CatBot;
 import dany.catbot.Settings;
 
 public abstract class ChatCommand
@@ -12,11 +15,12 @@ public abstract class ChatCommand
 	{
 		this.commandName = name;
 		this.commandUsage = usage;
+		this.commandPermission = perm;
 	}
 	
-	public void init()
+	public void register()
 	{
-		Settings.COMMANDS.put(commandName, this);
+		Settings.COMMANDS.add(this);
 	}
 	
 	public boolean canBeExecuted(String user, EnumPermissionLevel perm)
@@ -24,5 +28,5 @@ public abstract class ChatCommand
 		return perm.greaterOrEqual(commandPermission);
 	}
 	
-	public abstract void execute(String query);
+	public abstract void execute(MessageEvent<CatBot> e, String query);
 }
