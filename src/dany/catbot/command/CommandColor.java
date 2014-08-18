@@ -1,11 +1,9 @@
 package dany.catbot.command;
 
 import org.pircbotx.hooks.events.MessageEvent;
-import org.pircbotx.output.OutputIRC;
 
 import dany.catbot.CatBot;
 import dany.catbot.Localization;
-import dany.catbot.Settings;
 import dany.catbot.lib.Helper;
 
 public class CommandColor extends ChatCommand

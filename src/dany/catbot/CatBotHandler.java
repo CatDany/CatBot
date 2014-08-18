@@ -24,6 +24,7 @@ import dany.catbot.command.CommandHelp;
 import dany.catbot.command.CommandLMGTFY;
 import dany.catbot.command.CommandList;
 import dany.catbot.command.CommandReload;
+import dany.catbot.command.CommandSong;
 import dany.catbot.command.EnumPermissionLevel;
 import dany.catbot.lib.Helper;
 
@@ -142,5 +143,6 @@ public class CatBotHandler implements Listener<CatBot>
 		new CommandList("chosen", Settings.CHOSEN, "list_chosen").register();
 		new CommandList("commands", Settings.COMMANDS, "list_commands").register();
 		new CommandHelp().register();
+		new CommandSong().register();
 	}
 }

@@ -6,7 +6,6 @@ import org.pircbotx.hooks.events.MessageEvent;
 
 import dany.catbot.CatBot;
 import dany.catbot.Localization;
-import dany.catbot.Settings;
 import dany.catbot.lib.Helper;
 
 public class CommandLMGTFY extends ChatCommand

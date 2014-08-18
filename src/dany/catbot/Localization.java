@@ -25,6 +25,8 @@ public class Localization
 	public static final String COLOR_CHANGED = "color_changed";
 	public static final String FOUND_IT = "found_it";
 	public static final String YOUTUBE_INFO = "youtube_info";
+	public static final String CURRENT_SONG = "current_song";
+	public static final String CURRENT_SONG_NOT_ENABLED = "current_song_not_enabled";
 	
 	public static String get(String key, Object... args)
 	{
