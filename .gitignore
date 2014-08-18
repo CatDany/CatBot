@@ -1,5 +1,7 @@
 bin
+lang
 .classpath
 .project
+commands.txt
 chosen.txt
 settings.properties
