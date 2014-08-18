@@ -11,7 +11,7 @@ public class CommandColor extends ChatCommand
 {
 	public CommandColor()
 	{
-		super("color", null, EnumPermissionLevel.BROADCASTER);
+		super("color", "{color}", EnumPermissionLevel.BROADCASTER);
 	}
 	
 	@Override

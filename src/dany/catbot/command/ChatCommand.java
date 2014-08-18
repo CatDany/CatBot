@@ -29,4 +29,10 @@ public abstract class ChatCommand
 	}
 	
 	public abstract void execute(MessageEvent<CatBot> e, String query);
+	
+	@Override
+	public String toString()
+	{
+		return "!" + commandName;
+	}
 }

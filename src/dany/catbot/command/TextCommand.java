@@ -18,15 +18,19 @@ public class TextCommand extends ChatCommand
 	@Override
 	public void execute(MessageEvent<CatBot> e, String query)
 	{
-		String reply;
+		String reply = response;
 		
 		if (response.contains("%s") && query != null && !query.equals(""))
 		{
-			reply = String.format(response, query);
+			reply = String.format(reply, query);
 		}
-		else
+		if (response.contains("$u"))
 		{
-			reply = response;
+			reply = reply.replace("$u", e.getUser().getNick());
+		}
+		if (response.contains("$b"))
+		{
+			reply = reply.replace("$b", Settings.BROADCASTER_NAME);
 		}
 		
 		e.getBot().sendIRC().message(Settings.CHANNEL, reply);

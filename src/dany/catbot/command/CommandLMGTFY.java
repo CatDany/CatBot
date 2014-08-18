@@ -12,7 +12,7 @@ public class CommandLMGTFY extends ChatCommand
 {
 	public CommandLMGTFY()
 	{
-		super("google", null, EnumPermissionLevel.CHOSEN);
+		super("google", "{query}", EnumPermissionLevel.CHOSEN);
 	}
 	
 	@Override

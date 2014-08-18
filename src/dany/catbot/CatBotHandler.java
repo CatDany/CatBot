@@ -20,7 +20,9 @@ import dany.catbot.command.ChatCommand;
 import dany.catbot.command.CommandAdd;
 import dany.catbot.command.CommandColor;
 import dany.catbot.command.CommandDel;
+import dany.catbot.command.CommandHelp;
 import dany.catbot.command.CommandLMGTFY;
+import dany.catbot.command.CommandList;
 import dany.catbot.command.CommandReload;
 import dany.catbot.command.EnumPermissionLevel;
 import dany.catbot.lib.Helper;
@@ -137,5 +139,8 @@ public class CatBotHandler implements Listener<CatBot>
 		new CommandAdd().register();
 		new CommandDel().register();
 		new CommandReload().register();
+		new CommandList("chosen", Settings.CHOSEN, "list_chosen").register();
+		new CommandList("commands", Settings.COMMANDS, "list_commands").register();
+		new CommandHelp().register();
 	}
 }

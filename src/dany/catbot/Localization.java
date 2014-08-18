@@ -19,6 +19,7 @@ public class Localization
 	public static final String COMMAND_DELETED = "command_deleted";
 	public static final String RELOAD_SUCCESS = "reload_success";
 	public static final String RELOAD_FAIL = "reload_fail";
+	public static final String NO_USAGE_FOUND = "no_usage_found";
 	public static final String URL_SHORTENERS_BANNED = "url_shorteners_banned";
 	public static final String CAPS_BANNED = "caps_banned";
 	public static final String COLOR_CHANGED = "color_changed";
