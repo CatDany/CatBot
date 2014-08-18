@@ -115,7 +115,6 @@ public class CatBotHandler implements Listener<CatBot>
 		autoTriggers.add(new AutoLinkShrinker());
 		autoTriggers.add(new AutoYouTube());
 		autoTriggers.add(new AutoCaps());
-		addSystemCommands();
 		
 		System.out.println("Logging in...");
 		
