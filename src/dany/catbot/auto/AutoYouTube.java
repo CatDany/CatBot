@@ -9,6 +9,7 @@ import dany.catbot.CatBot;
 import dany.catbot.Localization;
 import dany.catbot.Settings;
 import dany.catbot.command.EnumPermissionLevel;
+import dany.catbot.lib.Helper;
 
 public class AutoYouTube extends AutoTrigger
 {
@@ -32,7 +33,7 @@ public class AutoYouTube extends AutoTrigger
 			{
 				Object[] response = getYouTubeInfo("http://" + i);
 				response[0] = user;
-				e.getBot().sendIRC().message(Settings.CHANNEL, Localization.get(Localization.YOUTUBE_INFO, response));
+				Helper.send(e, Localization.get(Localization.YOUTUBE_INFO, response));
 			}
 		}
 	}

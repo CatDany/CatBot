@@ -5,6 +5,7 @@ import org.pircbotx.hooks.events.MessageEvent;
 import dany.catbot.CatBot;
 import dany.catbot.Localization;
 import dany.catbot.Settings;
+import dany.catbot.lib.Helper;
 
 public class CommandAdd extends ChatCommand
 {
@@ -28,7 +29,7 @@ public class CommandAdd extends ChatCommand
 		}
 		catch (IndexOutOfBoundsException t)
 		{
-			e.getBot().sendIRC().message(Settings.CHANNEL, Localization.get(Localization.WRONG_ARGUMENTS, e.getUser().getNick(), "!" + commandName + " " + commandUsage));
+			Helper.send(e, Localization.get(Localization.WRONG_ARGUMENTS, e.getUser().getNick(), "!" + commandName + " " + commandUsage));
 			return;
 		}
 		
@@ -36,7 +37,7 @@ public class CommandAdd extends ChatCommand
 		{
 			if (i.commandName.equalsIgnoreCase(name))
 			{
-				e.getBot().sendIRC().message(Settings.CHANNEL, Localization.get(Localization.COMMAND_IS_EXISTING, e.getUser().getNick()));
+				Helper.send(e, Localization.get(Localization.COMMAND_IS_EXISTING, e.getUser().getNick()));
 				return;
 			}
 		}
@@ -44,6 +45,6 @@ public class CommandAdd extends ChatCommand
 		Settings.COMMANDS.add(new TextCommand(name, ul, response));
 		Settings.writeCommands();
 		
-		e.getBot().sendIRC().message(Settings.CHANNEL, Localization.get(Localization.COMMAND_ADDED, e.getUser().getNick(), name, EnumPermissionLevel.parseUserLevel(ul)));
+		Helper.send(e, Localization.get(Localization.COMMAND_ADDED, e.getUser().getNick(), name, EnumPermissionLevel.parseUserLevel(ul)));
 	}
 }

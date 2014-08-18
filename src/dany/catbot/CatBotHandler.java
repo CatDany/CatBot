@@ -42,7 +42,7 @@ public class CatBotHandler implements Listener<CatBot>
 			if (!saidHello)
 			{
 				System.out.println("Saying Hello...");
-				me.getBot().sendIRC().message(Settings.CHANNEL, Localization.get(Localization.BOT_JOINED));
+				Helper.send(e, Localization.get(Localization.BOT_JOINED));
 				saidHello = true;
 			}
 			

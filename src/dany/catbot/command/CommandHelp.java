@@ -5,6 +5,7 @@ import org.pircbotx.hooks.events.MessageEvent;
 import dany.catbot.CatBot;
 import dany.catbot.Localization;
 import dany.catbot.Settings;
+import dany.catbot.lib.Helper;
 
 public class CommandHelp extends ChatCommand
 {
@@ -18,7 +19,7 @@ public class CommandHelp extends ChatCommand
 	{
 		if (query == null || query.equals(""))
 		{
-			e.getBot().sendIRC().message(Settings.CHANNEL, Localization.get(Localization.WRONG_ARGUMENTS, e.getUser().getNick(), "!" + commandName + " " + commandUsage));
+			Helper.send(e, Localization.get(Localization.WRONG_ARGUMENTS, e.getUser().getNick(), "!" + commandName + " " + commandUsage));
 			return;
 		}
 		
@@ -28,15 +29,15 @@ public class CommandHelp extends ChatCommand
 			{
 				if (i.commandUsage != null)
 				{
-					e.getBot().sendIRC().message(Settings.CHANNEL, e.getUser().getNick() + " --> " + "!" + i.commandName + " " + i.commandUsage + " [" + i.commandPermission + "]");
+					Helper.send(e, e.getUser().getNick() + " --> " + "!" + i.commandName + " " + i.commandUsage + " [" + i.commandPermission + "]");
 				}
 				else
 				{
-					e.getBot().sendIRC().message(Settings.CHANNEL, Localization.get(Localization.NO_USAGE_FOUND, e.getUser().getNick(), query));
+					Helper.send(e, Localization.get(Localization.NO_USAGE_FOUND, e.getUser().getNick(), query));
 				}
 				return;
 			}
 		}
-		e.getBot().sendIRC().message(Settings.CHANNEL, Localization.get(Localization.NO_SUCH_COMMAND, e.getUser().getNick(), query));
+		Helper.send(e, Localization.get(Localization.NO_SUCH_COMMAND, e.getUser().getNick(), query));
 	}
 }

@@ -4,6 +4,7 @@ import org.pircbotx.hooks.events.MessageEvent;
 
 import dany.catbot.CatBot;
 import dany.catbot.Settings;
+import dany.catbot.lib.Helper;
 
 public class TextCommand extends ChatCommand
 {
@@ -33,6 +34,6 @@ public class TextCommand extends ChatCommand
 			reply = reply.replace("$b", Settings.BROADCASTER_NAME);
 		}
 		
-		e.getBot().sendIRC().message(Settings.CHANNEL, reply);
+		Helper.send(e,  reply);
 	}
 }

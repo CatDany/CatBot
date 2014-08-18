@@ -5,8 +5,8 @@ import org.pircbotx.output.OutputIRC;
 
 import dany.catbot.CatBot;
 import dany.catbot.Localization;
-import dany.catbot.Settings;
 import dany.catbot.command.EnumPermissionLevel;
+import dany.catbot.lib.Helper;
 
 public class AutoLinkShrinker extends AutoTrigger
 {
@@ -24,8 +24,8 @@ public class AutoLinkShrinker extends AutoTrigger
 		OutputIRC irc = e.getBot().sendIRC();
 		if (!perm.greaterOrEqual(EnumPermissionLevel.MODERATOR))
 		{
-			irc.message(Settings.CHANNEL, ".timeout " + user + " 150");
-			irc.message(Settings.CHANNEL, Localization.get(Localization.URL_SHORTENERS_BANNED, user));
+			Helper.send(e, ".timeout " + user + " 150");
+			Helper.send(e, Localization.get(Localization.URL_SHORTENERS_BANNED, user));
 		}
 	}
 }

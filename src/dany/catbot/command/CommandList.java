@@ -7,6 +7,7 @@ import org.pircbotx.hooks.events.MessageEvent;
 import dany.catbot.CatBot;
 import dany.catbot.Localization;
 import dany.catbot.Settings;
+import dany.catbot.lib.Helper;
 
 public class CommandList extends ChatCommand
 {
@@ -30,6 +31,6 @@ public class CommandList extends ChatCommand
 		}
 		strList = strList.substring(0, strList.length() - 2);
 		
-		e.getBot().sendIRC().message(Settings.CHANNEL, Localization.get(listName) + ": " + strList);
+		Helper.send(e, Localization.get(listName) + ": " + strList);
 	}
 }

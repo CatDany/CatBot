@@ -5,6 +5,7 @@ import org.pircbotx.hooks.events.MessageEvent;
 import dany.catbot.CatBot;
 import dany.catbot.Localization;
 import dany.catbot.Settings;
+import dany.catbot.lib.Helper;
 
 public class CommandDel extends ChatCommand
 {
@@ -18,7 +19,7 @@ public class CommandDel extends ChatCommand
 	{
 		if (query == null || query.equals(""))
 		{
-			e.getBot().sendIRC().message(Settings.CHANNEL, Localization.get(Localization.WRONG_ARGUMENTS, e.getUser().getNick(), "!" + commandName + " " + commandUsage));
+			Helper.send(e, Localization.get(Localization.WRONG_ARGUMENTS, e.getUser().getNick(), "!" + commandName + " " + commandUsage));
 			return;
 		}
 		
@@ -32,12 +33,12 @@ public class CommandDel extends ChatCommand
 				{
 					Settings.COMMANDS.remove(i);
 					Settings.writeCommands();
-					e.getBot().sendIRC().message(Settings.CHANNEL, Localization.get(Localization.COMMAND_DELETED, e.getUser().getNick(), query));
+					Helper.send(e, Localization.get(Localization.COMMAND_DELETED, e.getUser().getNick(), query));
 					return;
 				}
 			}
 		}
 		
-		e.getBot().sendIRC().message(Settings.CHANNEL, Localization.get(Localization.NO_SUCH_COMMAND, e.getUser().getNick(), query));
+		Helper.send(e, Localization.get(Localization.NO_SUCH_COMMAND, e.getUser().getNick(), query));
 	}
 }

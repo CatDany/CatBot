@@ -6,6 +6,7 @@ import org.pircbotx.output.OutputIRC;
 import dany.catbot.CatBot;
 import dany.catbot.Localization;
 import dany.catbot.Settings;
+import dany.catbot.lib.Helper;
 
 public class CommandColor extends ChatCommand
 {
@@ -15,10 +16,9 @@ public class CommandColor extends ChatCommand
 	}
 	
 	@Override
-	public void execute(MessageEvent<CatBot> e, String query)
+	public void execute(final MessageEvent<CatBot> e, String query)
 	{
-		final OutputIRC irc = e.getBot().sendIRC();
-		irc.message(Settings.CHANNEL, ".color " + query);
+		Helper.send(e, ".color " + query);
 		new Thread()
 		{
 			public void run()
@@ -31,7 +31,7 @@ public class CommandColor extends ChatCommand
 				{
 					t.printStackTrace();
 				}
-				irc.message(Settings.CHANNEL, Localization.get(Localization.COLOR_CHANGED));
+				Helper.send(e, Localization.get(Localization.COLOR_CHANGED));
 			}
 		}.start();
 	}

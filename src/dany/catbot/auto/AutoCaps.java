@@ -7,6 +7,7 @@ import dany.catbot.CatBot;
 import dany.catbot.Localization;
 import dany.catbot.Settings;
 import dany.catbot.command.EnumPermissionLevel;
+import dany.catbot.lib.Helper;
 
 public class AutoCaps extends AutoTrigger
 {
@@ -40,9 +41,8 @@ public class AutoCaps extends AutoTrigger
 				}
 				if (current / total >= maxCaps)
 				{
-					OutputIRC irc = e.getBot().sendIRC();
-					irc.message(Settings.CHANNEL, ".timeout " + user + " 150");
-					irc.message(Settings.CHANNEL, Localization.get(Localization.CAPS_BANNED, user));
+					Helper.send(e, ".timeout " + user + " 150");
+					Helper.send(e, Localization.get(Localization.CAPS_BANNED, user));
 				}
 			}
 		}

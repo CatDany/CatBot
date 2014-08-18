@@ -5,6 +5,7 @@ import org.pircbotx.hooks.events.MessageEvent;
 import dany.catbot.CatBot;
 import dany.catbot.Localization;
 import dany.catbot.Settings;
+import dany.catbot.lib.Helper;
 
 public class CommandReload extends ChatCommand
 {
@@ -19,11 +20,11 @@ public class CommandReload extends ChatCommand
 		boolean b0 = Settings.reloadChosen() && Settings.reloadCommands();
 		if (b0)
 		{
-			e.getBot().sendIRC().message(Settings.CHANNEL, Localization.get(Localization.RELOAD_SUCCESS, e.getUser().getNick()));
+			Helper.send(e, Localization.get(Localization.RELOAD_SUCCESS, e.getUser().getNick()));
 		}
 		else
 		{
-			e.getBot().sendIRC().message(Settings.CHANNEL, Localization.get(Localization.RELOAD_FAIL, e.getUser().getNick()));
+			Helper.send(e, Localization.get(Localization.RELOAD_FAIL, e.getUser().getNick()));
 		}
 	}
 }
