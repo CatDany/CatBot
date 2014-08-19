@@ -1,8 +1,16 @@
 package dany.catbot;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
 import org.pircbotx.Configuration;
 import org.pircbotx.PircBotX;
+import org.pircbotx.hooks.events.MessageEvent;
 import org.pircbotx.output.OutputIRC;
+
+import dany.catbot.command.ChatCommand;
+import dany.catbot.command.EnumPermissionLevel;
+import dany.catbot.lib.Helper;
 
 public class CatBot extends PircBotX implements Runnable
 {
@@ -24,15 +32,28 @@ public class CatBot extends PircBotX implements Runnable
 	@Override
 	public void run()
 	{
+		BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
 		while (true)
 		{
-			// This is a runnable
-			// RUUUUUUUUNNNNN!!!!!!!111111
+			try
+			{
+				String input = r.readLine();
+				input(input);
+			}
+			catch (Throwable t)
+			{
+				t.printStackTrace();
+			}
 		}
 	}
 	
 	public void start()
 	{
 		new Thread(this).start();
+	}
+	
+	public void input(String input)
+	{
+		Helper.send(sendIRC(), input);
 	}
 }

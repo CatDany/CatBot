@@ -18,10 +18,14 @@ public class CommandBirthday extends ChatCommand
 	@Override
 	public void execute(MessageEvent<CatBot> e, String query)
 	{
-		if (query == null || query.equals("") || !query.matches("^[0-9]{2}\\.[0-9]{2}\\.[0-9]{4}$"))
+		if (query == null || query.equals(""))
 		{
 			Helper.send(e, Localization.get(Localization.WRONG_ARGUMENTS, e.getUser().getNick(), "!" + commandName + " " + commandUsage));
 			return;
+		}
+		else if (!query.matches("^[0-9]{2}\\.[0-9]{2}\\.[0-9]{4}$"))
+		{
+			Helper.send(e, Localization.get(Localization.INTRODUCING_BIRTHDAY));
 		}
 		
 		if (BirthdayDatabase.birthdayMap.containsKey(e.getUser().getNick()))

@@ -27,10 +27,10 @@ public class Localization
 	public static final String YOUTUBE_INFO = "youtube_info";
 	public static final String CURRENT_SONG = "current_song";
 	public static final String CURRENT_SONG_NOT_ENABLED = "current_song_not_enabled";
+	public static final String INTRODUCING_BIRTHDAY = "introducing_birthday";
 	public static final String BIRTHDAY_SET = "birthday_set";
 	public static final String BIRTHDAY_IS_ALREADY_SET = "birthday_is_already_set";
 	public static final String HAPPY_BIRTHDAY = "happy_birthday";
-	public static final String STRAWPOLL_INFO = "strawpoll_info";
 	
 	public static String get(String key, Object... args)
 	{
