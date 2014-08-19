@@ -16,6 +16,7 @@ import com.google.common.collect.ImmutableSortedSet;
 
 import dany.catbot.auto.AutoCaps;
 import dany.catbot.auto.AutoLinkShrinker;
+import dany.catbot.auto.AutoStrawpoll;
 import dany.catbot.auto.AutoTrigger;
 import dany.catbot.auto.AutoYouTube;
 import dany.catbot.command.ChatCommand;
@@ -133,6 +134,7 @@ public class CatBotHandler implements Listener<CatBot>
 		autoTriggers.add(new AutoLinkShrinker());
 		autoTriggers.add(new AutoYouTube());
 		autoTriggers.add(new AutoCaps());
+		autoTriggers.add(new AutoStrawpoll());
 		
 		BirthdayDatabase.reloadDatabase();
 		
