@@ -2,6 +2,8 @@ package dany.catbot.command;
 
 import org.pircbotx.hooks.events.MessageEvent;
 
+import com.google.common.base.Preconditions;
+
 import dany.catbot.CatBot;
 import dany.catbot.Localization;
 import dany.catbot.lib.Helper;

@@ -9,6 +9,8 @@ import org.pircbotx.Configuration.Builder;
 import org.pircbotx.UserLevel;
 import org.pircbotx.hooks.Event;
 import org.pircbotx.hooks.Listener;
+import org.pircbotx.hooks.events.DisconnectEvent;
+import org.pircbotx.hooks.events.JoinEvent;
 import org.pircbotx.hooks.events.MessageEvent;
 
 import com.google.common.base.Charsets;
@@ -128,7 +130,7 @@ public class CatBotHandler implements Listener<CatBot>
 			.setServerPort(6667)
 			.setServerPassword(Settings.OAUTH_TOKEN)
 			.setEncoding(Charsets.UTF_8);
-		CatBot bot = new CatBot(builder.buildConfiguration());
+		final CatBot bot = new CatBot(builder.buildConfiguration());
 		
 		autoTriggers.add(new AutoLinkShrinker());
 		autoTriggers.add(new AutoYouTube());
@@ -140,14 +142,21 @@ public class CatBotHandler implements Listener<CatBot>
 		
 		bot.start();
 		
-		try
-		{
-			bot.startBot();
-		}
-		catch (Throwable t)
-		{
-			t.printStackTrace();
-		}
+		new Thread() {
+			public void run()
+			{
+				try
+				{
+					bot.startBot();
+				}
+				catch (Throwable t)
+				{
+					t.printStackTrace();
+				}
+			}
+		}.start();
+		
+		Main.autoMsg = new AutoMessage(bot.sendIRC());
 		
 		return bot;
 	}

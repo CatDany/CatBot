@@ -21,6 +21,7 @@ public class Settings
 	public static String CHANNEL;
 	public static String BROADCASTER_NAME;
 	public static String LOCALE;
+	public static String AUTO_MESSAGE_TIMEOUT;
 	
 	public static void init()
 	{
@@ -51,6 +52,10 @@ public class Settings
 				else if ("locale".equals(key))
 				{
 					LOCALE = value;
+				}
+				else if ("auto_message_timeout".equals(key))
+				{
+					AUTO_MESSAGE_TIMEOUT = value;
 				}
 			}
 			reloadChosen();
