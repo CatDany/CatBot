@@ -5,11 +5,8 @@ import java.io.InputStreamReader;
 
 import org.pircbotx.Configuration;
 import org.pircbotx.PircBotX;
-import org.pircbotx.hooks.events.MessageEvent;
 import org.pircbotx.output.OutputIRC;
 
-import dany.catbot.command.ChatCommand;
-import dany.catbot.command.EnumPermissionLevel;
 import dany.catbot.lib.Helper;
 
 public class CatBot extends PircBotX implements Runnable

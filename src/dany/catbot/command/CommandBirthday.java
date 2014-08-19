@@ -20,12 +20,13 @@ public class CommandBirthday extends ChatCommand
 	{
 		if (query == null || query.equals(""))
 		{
-			Helper.send(e, Localization.get(Localization.WRONG_ARGUMENTS, e.getUser().getNick(), "!" + commandName + " " + commandUsage));
+			Helper.send(e, Localization.get(Localization.INTRODUCING_BIRTHDAY));
 			return;
 		}
 		else if (!query.matches("^[0-9]{2}\\.[0-9]{2}\\.[0-9]{4}$"))
 		{
-			Helper.send(e, Localization.get(Localization.INTRODUCING_BIRTHDAY));
+			Helper.send(e, Localization.get(Localization.WRONG_ARGUMENTS, e.getUser().getNick(), "!" + commandName + " " + commandUsage));
+			return;
 		}
 		
 		if (BirthdayDatabase.birthdayMap.containsKey(e.getUser().getNick()))
