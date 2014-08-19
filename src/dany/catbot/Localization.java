@@ -31,6 +31,10 @@ public class Localization
 	public static final String BIRTHDAY_SET = "birthday_set";
 	public static final String BIRTHDAY_IS_ALREADY_SET = "birthday_is_already_set";
 	public static final String HAPPY_BIRTHDAY = "happy_birthday";
+	public static final String TWEET_INFO = "tweet_info";
+	public static final String GIVEAWAY_START = "giveaway_start";
+	public static final String GIVEAWAY_WINNER = "giveaway_winner";
+	public static final String GIVEAWAY_STOP = "giveaway_stop";
 	
 	public static String get(String key, Object... args)
 	{

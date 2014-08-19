@@ -19,12 +19,14 @@ import com.google.common.collect.ImmutableSortedSet;
 import dany.catbot.auto.AutoCaps;
 import dany.catbot.auto.AutoLinkShrinker;
 import dany.catbot.auto.AutoTrigger;
+import dany.catbot.auto.AutoTwitter;
 import dany.catbot.auto.AutoYouTube;
 import dany.catbot.command.ChatCommand;
 import dany.catbot.command.CommandAdd;
 import dany.catbot.command.CommandBirthday;
 import dany.catbot.command.CommandColor;
 import dany.catbot.command.CommandDel;
+import dany.catbot.command.CommandGiveaway;
 import dany.catbot.command.CommandHelp;
 import dany.catbot.command.CommandLMGTFY;
 import dany.catbot.command.CommandList;
@@ -51,6 +53,11 @@ public class CatBotHandler implements Listener<CatBot>
 				System.out.println("Saying Hello...");
 				Helper.send(e, Localization.get(Localization.BOT_JOINED));
 				saidHello = true;
+			}
+			
+			if (CommandGiveaway.giveaway != null)
+			{
+				CommandGiveaway.giveaway.parseAndTrigger(me.getUser().getNick(), me.getMessage());
 			}
 			
 			if (BirthdayDatabase.birthdayMap.containsKey(me.getUser().getNick()) && BirthdayDatabase.birthdayMap.get(me.getUser().getNick()).shouldHappyBirthday())
@@ -135,6 +142,7 @@ public class CatBotHandler implements Listener<CatBot>
 		autoTriggers.add(new AutoLinkShrinker());
 		autoTriggers.add(new AutoYouTube());
 		autoTriggers.add(new AutoCaps());
+		autoTriggers.add(new AutoTwitter());
 		
 		BirthdayDatabase.reloadDatabase();
 		
@@ -173,5 +181,6 @@ public class CatBotHandler implements Listener<CatBot>
 		new CommandHelp().register();
 		new CommandSong().register();
 		new CommandBirthday().register();
+		new CommandGiveaway().register();
 	}
 }
