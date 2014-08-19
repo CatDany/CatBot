@@ -35,4 +35,15 @@ public class Helper
 	{
 		send(e.getBot().sendIRC(), message);
 	}
+	
+	public static String arrayToString(String separator, String... array)
+	{
+		String str = "";
+		for (String i : array)
+		{
+			str += i + separator;
+		}
+		str = str.substring(0, str.length() - separator.length());
+		return str;
+	}
 }
