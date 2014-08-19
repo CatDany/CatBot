@@ -1,7 +1,6 @@
 package dany.catbot.auto;
 
 import org.pircbotx.hooks.events.MessageEvent;
-import org.pircbotx.output.OutputIRC;
 
 import dany.catbot.CatBot;
 import dany.catbot.Localization;
@@ -21,7 +20,6 @@ public class AutoLinkShrinker extends AutoTrigger
 	@Override
 	public void execute(MessageEvent<CatBot> e, String user, EnumPermissionLevel perm)
 	{
-		OutputIRC irc = e.getBot().sendIRC();
 		if (!perm.greaterOrEqual(EnumPermissionLevel.MODERATOR))
 		{
 			Helper.send(e, ".timeout " + user + " 150");
