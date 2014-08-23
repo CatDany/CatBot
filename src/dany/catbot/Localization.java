@@ -35,6 +35,8 @@ public class Localization
 	public static final String GIVEAWAY_START = "giveaway_start";
 	public static final String GIVEAWAY_WINNER = "giveaway_winner";
 	public static final String GIVEAWAY_STOP = "giveaway_stop";
+	public static final String QUOTES_NOT_ENABLED = "quotes_not_enabled";
+	public static final String QUOTE_ADDED = "quote_added";
 	
 	public static String get(String key, Object... args)
 	{

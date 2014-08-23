@@ -22,6 +22,8 @@ public class Settings
 	public static String BROADCASTER_NAME;
 	public static String LOCALE;
 	public static String AUTO_MESSAGE_TIMEOUT;
+	public static String TIMEZONE;
+	public static String QUOTE_AUTHOR;
 	
 	public static void init()
 	{
@@ -56,6 +58,14 @@ public class Settings
 				else if ("auto_message_timeout".equals(key))
 				{
 					AUTO_MESSAGE_TIMEOUT = value;
+				}
+				else if ("timezone".equals(key))
+				{
+					TIMEZONE = value;
+				}
+				else if ("quote_author".equals(key))
+				{
+					QUOTE_AUTHOR = value;
 				}
 			}
 			reloadChosen();

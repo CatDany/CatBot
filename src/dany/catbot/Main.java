@@ -1,5 +1,6 @@
 package dany.catbot;
 
+
 public class Main
 {
 	public static CatBotHandler handler;
