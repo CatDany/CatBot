@@ -99,7 +99,7 @@ public class CatBotHandler implements Listener<CatBot>
 				{
 					if (me.getMessage().toLowerCase().startsWith("!" + i.commandName) && i.canBeExecuted(me.getUser().getNick(), perm))
 					{
-						String query = me.getMessage().toLowerCase().replace("!" + i.commandName, "").trim();
+						String query = me.getMessage().substring(("!" + i.commandName).length() + 1).trim();
 						i.execute(me, query);
 						break;
 					}
