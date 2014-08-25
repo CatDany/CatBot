@@ -9,6 +9,7 @@ import com.google.common.io.Files;
 
 import dany.catbot.CatBot;
 import dany.catbot.Localization;
+import dany.catbot.Settings;
 import dany.catbot.lib.Helper;
 
 public class CommandSong extends ChatCommand
@@ -30,7 +31,7 @@ public class CommandSong extends ChatCommand
 		String song;
 		try
 		{
-			song = Files.readFirstLine(file, Charsets.UTF_8);
+			song = Files.readFirstLine(file, Settings.CHARSET);
 		}
 		catch (Throwable t)
 		{

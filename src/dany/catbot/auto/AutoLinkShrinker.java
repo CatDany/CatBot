@@ -4,6 +4,7 @@ import org.pircbotx.hooks.events.MessageEvent;
 
 import dany.catbot.CatBot;
 import dany.catbot.Localization;
+import dany.catbot.Settings;
 import dany.catbot.command.EnumPermissionLevel;
 import dany.catbot.lib.Helper;
 
@@ -22,7 +23,7 @@ public class AutoLinkShrinker extends AutoTrigger
 	{
 		if (!perm.greaterOrEqual(EnumPermissionLevel.MODERATOR))
 		{
-			Helper.send(e, ".timeout " + user + " 150");
+			Helper.send(e, ".timeout " + user + " " + Settings.TIMEOUT_IN_SEC);
 			Helper.send(e, Localization.get(Localization.URL_SHORTENERS_BANNED, user));
 		}
 	}

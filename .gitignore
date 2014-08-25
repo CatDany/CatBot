@@ -1,7 +1,4 @@
-bin
-lang
-.classpath
-.project
-commands.txt
-chosen.txt
-settings.properties
+/*
+!src/
+!LICENSE
+!README.md

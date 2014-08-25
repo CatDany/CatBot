@@ -4,6 +4,7 @@ import org.pircbotx.hooks.events.MessageEvent;
 
 import dany.catbot.CatBot;
 import dany.catbot.Localization;
+import dany.catbot.Settings;
 import dany.catbot.command.EnumPermissionLevel;
 import dany.catbot.lib.Helper;
 
@@ -39,7 +40,7 @@ public class AutoCaps extends AutoTrigger
 				}
 				if (current / total >= maxCaps)
 				{
-					Helper.send(e, ".timeout " + user + " 150");
+					Helper.send(e, ".timeout " + user + " " + Settings.TIMEOUT_IN_SEC);
 					Helper.send(e, Localization.get(Localization.CAPS_BANNED, user));
 				}
 			}

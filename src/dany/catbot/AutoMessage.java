@@ -1,6 +1,7 @@
 package dany.catbot;
 
 import java.io.File;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.util.List;
 import java.util.Random;
@@ -29,7 +30,7 @@ public class AutoMessage implements Runnable
 		}
 		try
 		{
-			messages = Files.readAllLines(file.toPath(), Charsets.UTF_8);
+			messages = Files.readAllLines(file.toPath(), Settings.CHARSET);
 		}
 		catch (Throwable t)
 		{

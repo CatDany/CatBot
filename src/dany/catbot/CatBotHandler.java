@@ -1,5 +1,6 @@
 package dany.catbot;
 
+import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -96,9 +97,9 @@ public class CatBotHandler implements Listener<CatBot>
 			{
 				for (ChatCommand i : Settings.COMMANDS)
 				{
-					if (me.getMessage().startsWith("!" + i.commandName) && i.canBeExecuted(me.getUser().getNick(), perm))
+					if (me.getMessage().toLowerCase().startsWith("!" + i.commandName) && i.canBeExecuted(me.getUser().getNick(), perm))
 					{
-						String query = me.getMessage().replace("!" + i.commandName, "").trim();
+						String query = me.getMessage().toLowerCase().replace("!" + i.commandName, "").trim();
 						i.execute(me, query);
 						break;
 					}

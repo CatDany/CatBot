@@ -2,17 +2,31 @@ package dany.catbot;
 
 import java.io.File;
 import java.io.PrintWriter;
+import java.lang.reflect.Field;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.google.common.base.Charsets;
 
 import dany.catbot.command.ChatCommand;
 import dany.catbot.command.TextCommand;
 
 public class Settings
 {
+	public static final Charset CHARSET = Charset.defaultCharset();
+	public static final String[] REQUESTED_PROPERTIES = new String[]
+			{
+				"name",
+				"oauth_token",
+				"channel",
+				"broadcaster_name",
+				"locale",
+				"auto_message_timeout",
+				"timezone",
+				"quote_author",
+				"timeout_in_sec"
+			};
+	
 	public static List<ChatCommand> COMMANDS = new ArrayList<ChatCommand>();
 	public static List<String> CHOSEN = new ArrayList<String>();
 	
@@ -24,49 +38,24 @@ public class Settings
 	public static String AUTO_MESSAGE_TIMEOUT;
 	public static String TIMEZONE;
 	public static String QUOTE_AUTHOR;
+	public static String TIMEOUT_IN_SEC;
 	
 	public static void init()
 	{
 		try
 		{
 			File fileSettings = new File("settings.properties");
-			List<String> listSettings = Files.readAllLines(fileSettings.toPath(), Charsets.UTF_8);
+			List<String> listSettings = Files.readAllLines(fileSettings.toPath(), Charset.defaultCharset());
 			for (String i : listSettings)
 			{
+				if (i.equals(""))
+				{
+					continue;
+				}
 				String key = i.split("=", 2)[0];
 				String value = i.split("=", 2)[1];
-				if ("name".equals(key))
-				{
-					NAME = value;
-				}
-				else if ("oauth_token".equals(key))
-				{
-					OAUTH_TOKEN = value;
-				}
-				else if ("channel".equals(key))
-				{
-					CHANNEL = "#" + value;
-				}
-				else if ("broadcaster_name".equals(key))
-				{
-					BROADCASTER_NAME = value;
-				}
-				else if ("locale".equals(key))
-				{
-					LOCALE = value;
-				}
-				else if ("auto_message_timeout".equals(key))
-				{
-					AUTO_MESSAGE_TIMEOUT = value;
-				}
-				else if ("timezone".equals(key))
-				{
-					TIMEZONE = value;
-				}
-				else if ("quote_author".equals(key))
-				{
-					QUOTE_AUTHOR = value;
-				}
+				Field f = Settings.class.getField(key.toUpperCase());
+				f.set(null, value);
 			}
 			reloadChosen();
 			reloadCommands();
@@ -85,7 +74,7 @@ public class Settings
 		try
 		{
 			File fileChosen = new File("chosen.txt");
-			CHOSEN = Files.readAllLines(fileChosen.toPath(), Charsets.UTF_8);
+			CHOSEN = Files.readAllLines(fileChosen.toPath(), Settings.CHARSET);
 			return true;
 		}
 		catch (Throwable t)
@@ -101,11 +90,7 @@ public class Settings
 		{
 			COMMANDS.clear();
 			File file = new File("commands.txt");
-			List<String> list = Files.readAllLines(file.toPath(), Charsets.UTF_8);
-			if (!list.isEmpty())
-			{
-				list.set(0, list.get(0).substring(1));
-			}
+			List<String> list = Files.readAllLines(file.toPath(), Settings.CHARSET);
 			for (String i : list)
 			{
 				if (i == null || i.isEmpty())

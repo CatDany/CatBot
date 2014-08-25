@@ -42,7 +42,7 @@ public class CommandQuote extends ChatCommand
 		List<String> allQuotes = null;
 		try
 		{
-			allQuotes = Files.readAllLines(file.toPath(), Charsets.UTF_8);
+			allQuotes = Files.readAllLines(file.toPath(), Settings.CHARSET);
 			if (allQuotes.contains(""))
 			{
 				allQuotes.remove("");

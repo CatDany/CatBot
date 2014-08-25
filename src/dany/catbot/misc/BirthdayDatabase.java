@@ -12,22 +12,6 @@ import com.google.common.base.Charsets;
 
 public class BirthdayDatabase
 {
-	static
-	{
-		File bddb = new File("birthday_database.txt");
-		if (!bddb.exists())
-		{
-			try
-			{
-				bddb.createNewFile();
-			}
-			catch (Throwable t)
-			{
-				t.printStackTrace();
-			}
-		}
-	}
-	
 	public static final HashMap<String, BirthdayDate> birthdayMap = new HashMap<String, BirthdayDate>();
 	
 	public static void reloadDatabase()

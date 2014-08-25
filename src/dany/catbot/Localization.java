@@ -5,8 +5,6 @@ import java.nio.file.Files;
 import java.util.HashMap;
 import java.util.List;
 
-import com.google.common.base.Charsets;
-
 public class Localization
 {
 	public static final HashMap<String, String> localizationMap = new HashMap<String, String>();
@@ -56,11 +54,7 @@ public class Localization
 		{
 			String localeKey = Settings.LOCALE;
 			File file = new File(String.format("lang\\%s.lang", localeKey));
-			List<String> list = Files.readAllLines(file.toPath(), Charsets.UTF_8);
-			if (!list.isEmpty())
-			{
-				list.set(0, list.get(0).substring(1));
-			}
+			List<String> list = Files.readAllLines(file.toPath(), Settings.CHARSET);
 			for (String i : list)
 			{
 				String key = i.split("=", 2)[0];
