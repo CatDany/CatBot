@@ -5,8 +5,6 @@ import java.io.InputStreamReader;
 
 import org.pircbotx.Configuration;
 import org.pircbotx.PircBotX;
-import org.pircbotx.hooks.events.DisconnectEvent;
-import org.pircbotx.hooks.events.JoinEvent;
 import org.pircbotx.output.OutputIRC;
 
 import dany.catbot.lib.Helper;

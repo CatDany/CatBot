@@ -9,8 +9,6 @@ import org.pircbotx.Configuration.Builder;
 import org.pircbotx.UserLevel;
 import org.pircbotx.hooks.Event;
 import org.pircbotx.hooks.Listener;
-import org.pircbotx.hooks.events.DisconnectEvent;
-import org.pircbotx.hooks.events.JoinEvent;
 import org.pircbotx.hooks.events.MessageEvent;
 
 import com.google.common.base.Charsets;
