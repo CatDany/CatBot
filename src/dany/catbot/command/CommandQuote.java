@@ -62,7 +62,7 @@ public class CommandQuote extends ChatCommand
 		{
 			String quote = query.substring(4);
 			Date date = Calendar.getInstance(TimeZone.getTimeZone(Settings.TIMEZONE)).getTime();
-			String timeanddate = new SimpleDateFormat("dd.MM.yyyy hh:mm").format(date);
+			String timeanddate = new SimpleDateFormat("dd.MM.yyyy HH:mm").format(date);
 			String line = quote + " (c) " + Settings.QUOTE_AUTHOR + " @ " + timeanddate + " " + Settings.TIMEZONE;
 			try
 			{
